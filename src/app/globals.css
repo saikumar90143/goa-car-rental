@@ -1,26 +1,115 @@
 @import "tailwindcss";
 
+/* ─── Design System Tokens ──────────────────────────────────────────────────── */
+@theme inline {
+  /* Primary — Teal */
+  --color-teal-50:  #f0fdfa;
+  --color-teal-100: #ccfbf1;
+  --color-teal-200: #99f6e4;
+  --color-teal-300: #5eead4;
+  --color-teal-400: #2dd4bf;
+  --color-teal-500: #14b8a6;
+  --color-teal-600: #0d9488;
+  --color-teal-700: #0f766e;
+  --color-teal-800: #115e59;
+  --color-teal-900: #134e4a;
+
+  /* Accent — Orange */
+  --color-orange-400: #fb923c;
+  --color-orange-500: #f97316;
+  --color-orange-600: #ea580c;
+  --color-orange-700: #c2410c;
+
+  /* Brand aliases */
+  --color-brand:        var(--color-teal-600);
+  --color-brand-dark:   var(--color-teal-700);
+  --color-brand-light:  var(--color-teal-50);
+  --color-accent:       var(--color-orange-500);
+  --color-accent-dark:  var(--color-orange-600);
+
+  /* Font */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ─── Global Base ────────────────────────────────────────────────────────────── */
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0f172a;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Utility: gradient text ─────────────────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #0d9488 0%, #14b8a6 50%, #2dd4bf 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Floating WhatsApp pulse ring ───────────────────────────────────────────── */
+@keyframes wa-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+  70%  { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.wa-pulse {
+  animation: wa-pulse 2.2s infinite;
+}
+
+/* ─── Card hover lift ─────────────────────────────────────────────────────────── */
+.card-lift {
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -8px rgba(13, 148, 136, 0.18);
+}
+
+/* ─── Hero gradient background ───────────────────────────────────────────────── */
+.hero-gradient {
+  background: linear-gradient(135deg, #0f4c3a 0%, #0d9488 40%, #0891b2 100%);
+}
+
+/* ─── Step connector line ─────────────────────────────────────────────────────── */
+.step-connector::after {
+  content: '';
+  position: absolute;
+  top: 2.5rem;
+  left: calc(50% + 2.5rem);
+  width: calc(100% - 5rem);
+  height: 2px;
+  background: linear-gradient(90deg, #0d9488, #2dd4bf);
+}
+
+/* ─── Testimonial card ────────────────────────────────────────────────────────── */
+.testimonial-card {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px -4px rgba(13, 148, 136, 0.12);
+  border: 1px solid #ccfbf1;
+}
+
+/* ─── Scroll-based fade-in animation ─────────────────────────────────────────── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up {
+  animation: fade-up 0.55s ease forwards;
 }
