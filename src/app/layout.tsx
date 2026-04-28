@@ -64,6 +64,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteConfig.url,
   },
+  verification: {
+    google: 'KhSorGakBx_JzMUnZQ3uzkOPuozIxOnLZTTIWL8G248',
+  },
 };
 
 // LocalBusiness JSON-LD schema
