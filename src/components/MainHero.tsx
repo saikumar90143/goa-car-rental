@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { getGeneralBookingUrl, getCarBookingUrl } from '@/lib/whatsapp';
@@ -50,6 +52,15 @@ export default function MainHero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-2xl bg-orange-500 px-8 py-4 text-lg font-bold text-white shadow-xl shadow-orange-500/20 hover:bg-orange-600 transition-all hover:-translate-y-1"
+                onClick={() => {
+                  if (typeof window !== 'undefined' && (window as any).gtag) {
+                    (window as any).gtag('event', 'conversion', {
+                      'send_to': 'AW-18126044926/bnZCCP-1r6QcEP79lcND',
+                      'value': 1.0,
+                      'currency': 'INR'
+                    });
+                  }
+                }}
               >
                 Book on WhatsApp
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 448 512">
