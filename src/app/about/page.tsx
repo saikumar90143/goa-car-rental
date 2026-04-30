@@ -43,7 +43,7 @@ export default function AboutPage() {
 
           <h2 className="text-2xl font-bold text-slate-900 mt-10 mb-4">The {siteConfig.shortName} Difference</h2>
           <p className="text-slate-600 mb-6">
-            When you book with us, you're not just renting a car; you're getting a local partner for your trip. We deliver vehicles directly to the airport (GOI), Madgaon railway station, or your hotel, so you can start your holiday the moment you arrive.
+            When you book with us, you're not just renting a car; you're getting a local partner for your trip. We deliver vehicles directly to the airport (GOI), Madgaon railway station, bus stand, or your hotel, so you can start your holiday the moment you arrive.
           </p>
           <ul className="list-disc pl-6 text-slate-600 mb-8 space-y-2">
             <li><strong>No Hidden Costs:</strong> We clearly communicate all charges before you book.</li>

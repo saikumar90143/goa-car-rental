@@ -34,7 +34,7 @@ export default function HomePage() {
               We're Based in Panaji, Goa
             </h2>
             <p className="text-slate-500 max-w-md mx-auto text-base">
-              We deliver to Goa Airport (GOI), Madgaon Station, or your hotel — anywhere in Goa.
+              We deliver to Goa Airport (GOI), Madgaon Station, Bus Stand, or your hotel — anywhere in Goa.
             </p>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-lg border border-slate-100 aspect-video w-full max-w-4xl mx-auto">

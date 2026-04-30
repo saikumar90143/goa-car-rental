@@ -24,7 +24,7 @@ const steps = [
   {
     number: '03',
     title: 'Confirm & Pick Up',
-    description: 'We confirm your booking, you arrive in Goa, and the car is ready for you — at the airport, station, or your hotel.',
+    description: 'We confirm your booking, you arrive in Goa, and the car is ready for you — at the airport, railway station, bus stand, or your hotel.',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />

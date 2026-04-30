@@ -110,6 +110,20 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} scroll-smooth`} data-scroll-behavior="smooth">
       <head>
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="preconnect" href="https://www.google.adservices.com" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+      </head>
+      <body className="flex min-h-screen flex-col bg-white text-slate-900 antialiased">
+        <Navbar />
+        <main className="flex-1">{children}</main>
+        <Footer />
+        <WhatsAppButton />
+
         {/* Google tag (gtag.js) */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-18126044926"
@@ -122,7 +136,7 @@ export default function RootLayout({
             gtag('js', new Date());
             gtag('config', 'AW-18126044926');
 
-            function gtag_report_conversion(url) {
+            window.gtag_report_conversion = function(url) {
               var callback = function () {
                 if (typeof(url) != 'undefined') {
                   window.location = url;
@@ -136,19 +150,8 @@ export default function RootLayout({
               });
               return false;
             }
-            window.gtag_report_conversion = gtag_report_conversion;
           `}
         </Script>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
-        />
-      </head>
-      <body className="flex min-h-screen flex-col bg-white text-slate-900 antialiased">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <WhatsAppButton />
       </body>
     </html>
   );

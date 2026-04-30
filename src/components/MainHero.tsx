@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { getGeneralBookingUrl, getCarBookingUrl } from '@/lib/whatsapp';
+import { trackWhatsAppConversion } from '@/lib/analytics';
 
 export default function MainHero() {
   const tharPrice = 2999;
@@ -42,7 +43,7 @@ export default function MainHero() {
             <p className="text-lg sm:text-xl text-slate-400 leading-relaxed mb-10 max-w-2xl mx-auto lg:mx-0">
               Affordable, well-maintained cars with instant WhatsApp booking.
               Get your <span className="text-white font-semibold">Mahindra Thar 4x4</span> or any
-              other car delivered to the Airport, Station, or Hotel.
+              other car delivered to the Airport, Station, Bus Stand, or Hotel.
             </p>
 
             {/* CTA buttons */}
@@ -52,15 +53,7 @@ export default function MainHero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-2xl bg-orange-500 px-8 py-4 text-lg font-bold text-white shadow-xl shadow-orange-500/20 hover:bg-orange-600 transition-all hover:-translate-y-1"
-                onClick={() => {
-                  if (typeof window !== 'undefined' && (window as any).gtag) {
-                    (window as any).gtag('event', 'conversion', {
-                      'send_to': 'AW-18126044926/bnZCCP-1r6QcEP79lcND',
-                      'value': 1.0,
-                      'currency': 'INR'
-                    });
-                  }
-                }}
+                onClick={() => trackWhatsAppConversion()}
               >
                 Book on WhatsApp
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 448 512">
@@ -80,7 +73,7 @@ export default function MainHero() {
 
             {/* Trust pills */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-slate-400">
-              {['✈️ Airport Delivery', '⛽ Full Tank Provided', '🛡️ Zero Paperwork'].map((pill) => (
+              {['✈️ Airport Delivery', '🚌 Bus Stand Delivery', '✅ 24/7 Support'].map((pill) => (
                 <div key={pill} className="flex items-center gap-2 text-sm font-medium">
                   <span className="w-1.5 h-1.5 rounded-full bg-teal-500" />
                   {pill}
@@ -100,7 +93,7 @@ export default function MainHero() {
                 alt="Mahindra Thar 4x4 Rental Goa"
                 fill
                 priority
-                sizes="(max-width: 1024px) 100vw, 50vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                 className="object-cover object-center transition-transform duration-1000 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />

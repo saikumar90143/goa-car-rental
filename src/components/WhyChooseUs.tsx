@@ -6,9 +6,9 @@ const reasons = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 22C6.48 22 2 17.52 2 12S6.48 2 12 2s10 4.48 10 10-4.48 10-10 10z" />
       </svg>
     ),
-    title: 'Airport & Station Pickup',
+    title: 'Airport, Station & Bus Stand Delivery',
     description:
-      'We deliver the car directly to Goa Airport or Madgaon Railway Station. No taxi needed, start your trip the moment you land.',
+      'We deliver the car directly to Goa Airport, Madgaon Railway Station, or any Bus Stand in Goa. No taxi needed, start your trip the moment you arrive.',
   },
   {
     icon: (

@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { getCarBookingUrl } from '@/lib/whatsapp';
+import { trackWhatsAppConversion } from '@/lib/analytics';
 
 type Car = {
   slug: string;
@@ -28,7 +29,7 @@ export default function CarCard({ car }: { car: Car }) {
           src={car.image}
           alt={`${car.name} self drive rental in Goa`}
           fill
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
           className="object-cover object-center group-hover:scale-110 transition-transform duration-700"
           loading="lazy"
         />
@@ -96,15 +97,7 @@ export default function CarCard({ car }: { car: Car }) {
             target="_blank"
             rel="noopener noreferrer"
             className="flex-1 text-center rounded-xl bg-orange-500 py-2.5 text-sm font-semibold text-white hover:bg-orange-600 transition-colors"
-            onClick={() => {
-              if (typeof window !== 'undefined' && (window as any).gtag) {
-                (window as any).gtag('event', 'conversion', {
-                  'send_to': 'AW-18126044926/bnZCCP-1r6QcEP79lcND',
-                  'value': 1.0,
-                  'currency': 'INR'
-                });
-              }
-            }}
+            onClick={() => trackWhatsAppConversion()}
           >
             Book Now
           </a>
